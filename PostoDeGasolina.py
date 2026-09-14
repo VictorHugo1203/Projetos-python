@@ -7,9 +7,11 @@ def menu():
     veiculos = 0
     litros_total = 0
     veiculos_acima_40l = 0
-    
-    gasolina = {comum: 6.70, aditivada: 6.80, premium: 8.50}
 
+    
+    comum = 6.70
+    aditivada = 6.80
+    premium = 8.50
 
     gnv = 4.7
     diesel= 6.8
@@ -19,7 +21,7 @@ def menu():
 
     while opcao != 0:
         print ("1 - Gasolina | 2 - G.N.V | 3 - Etanol | 4 - Diesel | 5 - Relátorio | 0 - Encerrar Sistema")
-        opcao = int(input("Escolha o Tipo De Gasolina:"))
+        opcao = int(input("Escolha o Tipo De Combustível:"))
         if opcao == 1:
             
             print ("1 - Gasolina Comum")
@@ -124,7 +126,6 @@ def menu():
 
         elif opcao == 5:
             media_litros = media(veiculos, litros_total)
-
             print("|---------RELÁTORIO-----------------------|")
             print(f"| Veículos Atendidos:{veiculos:<16}     |")
             print(f"| Valor Total Arrecadado:R${valor_total:<15}|")
@@ -132,7 +133,6 @@ def menu():
             print(f"| Média de Litros por Veículos:{media_litros:<11}|")
             print(f"| Veículos com 40 Litros ou mais:{veiculos_acima_40l:<9}|")
             print("|-----------------------------------------|")
-
         elif opcao == 0:
             print("Sistema Encerrado")
         else:
