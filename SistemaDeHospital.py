@@ -4,14 +4,12 @@ pacientes = []
 agendamentos = []
 consultas_realizadas = []
 
-medicos = [
-    {"id": 1, "nome": "Dr. Gioliano", "especialidade": "Clínico Geral"},
+medicos = [{"id": 1, "nome": "Dr. Gioliano", "especialidade": "Clínico Geral"},
     {"id": 2, "nome": "Dra. Ana", "especialidade": "Psiquiatria"},
     {"id": 3, "nome": "Dra. Maria", "especialidade": "Pediatria"},
     {"id": 4, "nome": "Enfermeira Julia", "especialidade": "Enfermagem"},
     {"id": 5, "nome": "Dr. Pedro", "especialidade": "Cirurgia Geral"},
-    {"id": 6, "nome": "Dr. João", "especialidade": "Cardiologia"}
-]
+    {"id": 6, "nome": "Dr. João", "especialidade": "Cardiologia"}]
 
 def gerar_senha(tipo, numero):
     return f"{tipo}{numero:03d}"
