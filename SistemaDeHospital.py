@@ -5,18 +5,19 @@ agendamentos = []
 consultas_realizadas = []
 
 medicos = [{"id": 1, "nome": "Dr. Gioliano", "especialidade": "Clínico Geral"},
-    {"id": 2, "nome": "Dra. Ana", "especialidade": "Psiquiatria"},
-    {"id": 3, "nome": "Dra. Maria", "especialidade": "Pediatria"},
-    {"id": 4, "nome": "Enfermeira Julia", "especialidade": "Enfermagem"},
-    {"id": 5, "nome": "Dr. Pedro", "especialidade": "Cirurgia Geral"},
-    {"id": 6, "nome": "Dr. João", "especialidade": "Cardiologia"}]
+        {"id": 2, "nome": "Dra. Ana", "especialidade": "Psiquiatria"},
+        {"id": 3, "nome": "Dra. Maria", "especialidade": "Pediatria"},
+        {"id": 4, "nome": "Enfermeira Julia", "especialidade": "Enfermagem"},
+        {"id": 5, "nome": "Dr. Pedro", "especialidade": "Cirurgia Geral"},
+        {"id": 6, "nome": "Dr. João", "especialidade": "Cardiologia"}]
+#lista de médicos pré definidos ja.
 
 def gerar_senha(tipo, numero):
     return f"{tipo}{numero:03d}"
+#gerador de senha.
 
 def chamar_medicos():
     print("ESCOLHA O MÉDICO")
-    
     for medico in medicos:
         print(medico["id"], "-", medico["nome"], "-", medico["especialidade"])
 
@@ -29,6 +30,7 @@ def chamar_medicos():
 
     print("Médico Indisponível.")
 
+# função que chama o médico e da as opções na recepção la embaixo
 def cadastrar_paciente(tipo, normal, prioritario, emergencia):
     nome = input("Digite seu Nome: ")
     data_nascimento = input("Digite sua Data de Nascimento: ")
@@ -55,7 +57,6 @@ def cadastrar_paciente(tipo, normal, prioritario, emergencia):
         "plano": plano,
         "tipo": tipo,
         "senha": senha}
-
     if confirmacao == 1:
         pacientes.append(paciente)
 
@@ -76,6 +77,7 @@ def cadastrar_paciente(tipo, normal, prioritario, emergencia):
 
     return normal, prioritario, emergencia
 
+# função que cadastra os clientes na clínica e salva seus dados.
 def encontrar_paciente():
     cpf = input("Digite o CPF do paciente: ")
 
@@ -85,6 +87,7 @@ def encontrar_paciente():
 
     print("Paciente não encontrado.")
 
+# função pra procurar os clientes que ja foram cadastrados. (se não foi cadastrado, não vai achar)
 def agendar_consulta():
     print("AGENDAMENTO DE CONSULTA")
 
@@ -126,6 +129,7 @@ def agendar_consulta():
                 print("Data:", data_hora.strftime("%d/%m/%Y"))
                 print("Horário:", data_hora.strftime("%H:%M"))
 
+# função pra agendar a consulta usando datatime.
 def cancelar_consulta():
     print("CANCELAMENTO DE CONSULTA")
 
@@ -152,6 +156,7 @@ def cancelar_consulta():
         if encontrou == 0:
             print("Nenhuma consulta agendada encontrada.")
 
+# função pra cancelar a consulta que ja foi agendada anteriormente. (se não foi agendada antes, não terá nenhuma.)
 def remarcar_consulta():
     print("\nREMARCAÇÃO DE CONSULTA")
 
@@ -185,6 +190,7 @@ def remarcar_consulta():
 
         print("Consulta não encontrada.")
 
+# função pra remarcar as consultas que ja foram canceladas anteriormente. (se não cancelou nenhuma, não terá nenhuma.)
 def realizar_consulta():
     print("CONSULTA PRESENCIAL")
 
@@ -212,6 +218,7 @@ def realizar_consulta():
 
         print("Nenhuma consulta agendada encontrada.")
 
+# função pra consultar o paciente no mesmo dia, presencialmente. (Opção Mais usada.)
 def relatorio():
     print("====== RELATÓRIO ======")
 
@@ -236,6 +243,8 @@ def relatorio():
         contador = contador + 1
 
     print("CONSULTAS REALIZADAS:", contador)
+
+# função pra gerar o relatório dos pacientes Diários. (se não tiver pacientes, não vai ter nenhum relatório.)
 
 def recepcao():
     normal = 0
@@ -285,5 +294,5 @@ def recepcao():
 
         else:
             print("Opção inválida.")
-
+# função de recepção que é a interface que o atendente vai manusear.
 recepcao()
